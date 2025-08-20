@@ -1,10 +1,10 @@
 // Typing effect
 const heroText = document.getElementById("heroText");
 const phrases = [
-  "Process-driven creative",
-  "Remote team leader",
-  "Persona strategist",
-  "Digital storyteller"
+  "Turning vision into digital clarity.",
+  "Creative strategist & team builder.",
+  "Persona-driven messaging expert.",
+  "Remote operations specialist."
 ];
 let phraseIndex = 0;
 let charIndex = 0;
@@ -37,30 +37,17 @@ document.addEventListener("DOMContentLoaded", () => {
   if (phrases.length) setTimeout(type, pauseDelay);
 });
 
-// Hamburger menu toggle
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("navLinks");
-hamburger.addEventListener("click", () => {
-  navLinks.classList.toggle("show");
-});
+// Scroll-triggered animations
+const animatedElements = document.querySelectorAll('.fade-in, .slide-up');
 
-// Scroll spy
-const sections = document.querySelectorAll("section");
-const navItems = document.querySelectorAll(".nav-links li a");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    if (pageYOffset >= sectionTop) {
-      current = section.getAttribute("id");
+function revealOnScroll() {
+  animatedElements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 50) {
+      el.classList.add('visible');
     }
   });
+}
 
-  navItems.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href").includes(current)) {
-      link.classList.add("active");
-    }
-  });
-});
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
