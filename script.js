@@ -1,126 +1,97 @@
-// Typing effect
-const heroText = document.getElementById("heroText");
-const phrases = [
-  "Turning vision into digital clarity.",
-  "Creative strategist & team builder.",
-  "Persona-driven messaging expert.",
-  "Remote operations specialist."
-];
-let phraseIndex = 0;
-let charIndex = 0;
-
-function type() {
-  if (charIndex < phrases[phraseIndex].length) {
-    heroText.textContent += phrases[phraseIndex].charAt(charIndex);
-    charIndex++;
-    setTimeout(type, 100);
-  } else {
-    setTimeout(erase, 1500);
-  }
-}
-
-function erase() {
-  if (charIndex > 0) {
-    heroText.textContent = phrases[phraseIndex].substring(0, charIndex - 1);
-    charIndex--;
-    setTimeout(erase, 50);
-  } else {
-    phraseIndex = (phraseIndex + 1) % phrases.length;
-    setTimeout(type, 100);
-  }
-}
-
 document.addEventListener("DOMContentLoaded", () => {
-  if (phrases.length) setTimeout(type, 1500);
-});
+  // Typing effect
+  const heroText = document.getElementById("heroText");
+  const phrases = [
+    "Turning vision into digital clarity.",
+    "Creative strategist & team builder.",
+    "Persona-driven messaging expert.",
+    "Remote operations specialist."
+  ];
+  let phraseIndex = 0;
+  let charIndex = 0;
 
-// Scroll-triggered animations
-const fadeElements = document.querySelectorAll('.fade-in');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+  function type() {
+    if (charIndex < phrases[phraseIndex].length) {
+      heroText.textContent += phrases[phraseIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(type, 100);
+    } else {
+      setTimeout(erase, 1500);
     }
+  }
+
+  function erase() {
+    if (charIndex > 0) {
+      heroText.textContent = phrases[phraseIndex].substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(erase, 50);
+    } else {
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      setTimeout(type, 500);
+    }
+  }
+
+  type();
+
+  // Swiper init
+  new Swiper(".project-swiper", {
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
   });
-}, {
-  threshold: 0.3
-});
 
-fadeElements.forEach(el => observer.observe(el));
+  // Tag filtering
+  const tags = document.querySelectorAll(".tag");
+  const blogCards = document.querySelectorAll(".blog-card");
 
-// Swiper carousels
-const testimonialSwiper = new Swiper('.testimonialSwiper', {
-  loop: true,
-  autoplay: {
-    delay: 5000,
-  },
-  pagination: {
-    el: '.testimonialSwiper .swiper-pagination',
-    clickable: true,
-  },
-});
+  tags.forEach(tag => {
+    tag.addEventListener("click", () => {
+      tags.forEach(t => t.classList.remove("active"));
+      tag.classList.add("active");
+      const selected = tag.dataset.tag;
 
-const projectSwiper = new Swiper('.projectSwiper', {
-  loop: true,
-  autoplay: {
-    delay: 5000,
-  },
-  pagination: {
-    el: '.projectSwiper .swiper-pagination',
-    clickable: true,
-  },
-});
-
-// Blog tag filtering
-const tags = document.querySelectorAll('.tag');
-const blogCards = document.querySelectorAll('.blog-card');
-
-tags.forEach(tag => {
-  tag.addEventListener('click', () => {
-    tags.forEach(t => t.classList.remove('active'));
-    tag.classList.add('active');
-
-    const selected = tag.dataset.tag;
-
-    blogCards.forEach(card => {
-      const cardTags = card.dataset.tags.split(" ");
-      if (selected === 'all' || cardTags.includes(selected)) {
-        card.classList.remove('hidden');
-      } else {
-        card.classList.add('hidden');
-      }
+      blogCards.forEach(card => {
+        const cardTags = card.dataset.tags.split(" ");
+        if (selected === "all" || cardTags.includes(selected)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
     });
   });
-});
 
-// Dark mode toggle
-const themeToggle = document.getElementById("themeToggle");
-const currentTheme = localStorage.getItem("theme");
+  // Mobile nav toggle
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
 
-if (currentTheme === "dark") {
-  document.body.classList.add("dark");
-}
+  // Dark mode toggle
+  const themeToggle = document.getElementById("themeToggle");
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+  });
 
-themeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  const theme = document.body.classList.contains("dark") ? "dark" : "light";
-  localStorage.setItem("theme", theme);
-});
+  // Scroll-triggered fade-in
+  const faders = document.querySelectorAll(".fade-in");
+  const appearOptions = {
+    threshold: 0.3,
+    rootMargin: "0px 0px -50px 0px"
+  };
 
-// Mobile menu toggle
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-const navItems = document.querySelectorAll('.nav-link');
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
 
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-  menuToggle.classList.toggle('open');
-});
-
-navItems.forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    menuToggle.classList.remove('open');
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
   });
 });
