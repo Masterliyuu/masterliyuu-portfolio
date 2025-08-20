@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Leo Pañares – Creative strategist, persona expert, and remote operations specialist. Explore my portfolio, blog, and tools." />
   <title>Leo Lingel T. Pañares | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link rel="icon" href="favicon.ico" />
 </head>
 <body>
 
@@ -13,8 +15,8 @@
   <header>
     <nav class="navbar">
       <div class="logo">Leo Pañares</div>
-      <button id="themeToggle">🌙</button>
-      <div class="menu-toggle" id="menuToggle">
+      <button id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+      <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -145,10 +147,10 @@
   <!-- Contact Section -->
   <section id="contact" class="fade-in">
     <h2>Contact Me</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="5" placeholder="Your Message" required></textarea>
+    <form action="https://formspree.io/f/your-id" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name" />
+      <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email" />
+      <textarea name="message" rows="5" placeholder="Your Message" required aria-label="Your Message"></textarea>
       <button type="submit">Send Message</button>
     </form>
   </section>
@@ -159,105 +161,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script>
-    // Typing effect
-    const heroText = document.getElementById("heroText");
-    const phrases = [
-      "Turning vision into digital clarity.",
-      "Creative strategist & team builder.",
-      "Persona-driven messaging expert.",
-      "Remote operations specialist."
-    ];
-    let phraseIndex = 0;
-    let charIndex = 0;
-
-    function type() {
-      if (charIndex < phrases[phraseIndex].length) {
-        heroText.textContent += phrases[phraseIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(type, 100);
-      } else {
-        setTimeout(erase, 1500);
-      }
-    }
-
-    function erase() {
-      if (charIndex > 0) {
-        heroText.textContent = phrases[phraseIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(erase, 50);
-      } else {
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-        setTimeout(type, 500);
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      type();
-
-      // Swiper init
-      new Swiper(".project-swiper", {
-        loop: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-      });
-
-      // Tag filtering
-      const tags = document.querySelectorAll(".tag");
-      const blogCards = document.querySelectorAll(".blog-card");
-
-      tags.forEach(tag => {
-        tag.addEventListener("click", () => {
-          tags.forEach(t => t.classList.remove("active"));
-          tag.classList.add("active");
-          const selected = tag.dataset.tag;
-
-          blogCards.forEach(card => {
-            const cardTags = card.dataset.tags.split(" ");
-            if (selected === "all" || cardTags.includes(selected)) {
-              card.style.display = "block";
-            } else {
-              card.style.display = "none";
-            }
-          });
-        });
-      });
-
-      // Mobile nav toggle
-      const menuToggle = document.getElementById("menuToggle");
-      const navLinks = document.getElementById("navLinks");
-      menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
-
-      // Dark mode toggle
-      const themeToggle = document.getElementById("themeToggle");
-      themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-      });
-
-      // Scroll-triggered fade-in
-      const faders = document.querySelectorAll(".fade-in");
-      const appearOptions = {
-        threshold: 0.3,
-        rootMargin: "0px 0px -50px 0px"
-      };
-
-      const appearOnScroll = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        });
-      }, appearOptions);
-
-      faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-      });
-    });
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
