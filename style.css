@@ -1,184 +1,189 @@
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Segoe UI', sans-serif;
+/* Reset and base styles */
+* {
   margin: 0;
   padding: 0;
-  line-height: 1.6;
-  background-color: #fff;
-  color: #333;
-  transition: background 0.3s, color 0.3s;
+  box-sizing: border-box;
 }
-
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+  scroll-behavior: smooth;
+}
 section {
-  padding: 40px 20px;
-  max-width: 900px;
+  padding: 60px 20px;
+  max-width: 1000px;
   margin: auto;
 }
-
 h1, h2 {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-.skills-grid, .blog-grid {
+/* Navigation */
+.top-nav {
+  position: sticky;
+  top: 0;
+  background: #222;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  z-index: 999;
+}
+.nav-brand {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.nav-links {
+  list-style: none;
   display: flex;
   gap: 20px;
-  flex-wrap: wrap;
+}
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+.nav-links li a.active {
+  border-bottom: 2px solid #00bcd4;
+}
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
 }
 
-.skills-grid div, .blog-card {
+/* Hero */
+#hero {
+  background: linear-gradient(to right, #00bcd4, #2196f3);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+#heroText {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.skills-grid > div {
   flex: 1;
   min-width: 250px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.skills-grid ul {
-  padding-left: 20px;
-}
-
-.gallery-grid {
+/* Testimonials Slider */
+.slider {
   display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  overflow: hidden;
+  position: relative;
+}
+.slide {
+  min-width: 100%;
+  transition: transform 0.5s ease;
+  opacity: 0.3;
+}
+.slide.active {
+  opacity: 1;
 }
 
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
 .gallery-grid img {
   width: 100%;
-  max-width: 280px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
+/* Resume */
+.download-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #00bcd4;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* Blog */
+.blog-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.blog-card {
+  flex: 1;
+  min-width: 250px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Contact */
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
-
 input, textarea {
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 5px;
 }
-
 button {
   padding: 10px;
-  background: #222;
-  color: #fff;
+  background: #2196f3;
+  color: white;
   border: none;
-  border-radius: 6px;
-  cursor: pointer;
+  border-radius: 5px;
 }
 
-.download-btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 16px;
-  background-color: #222;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.download-btn:hover {
-  background-color: #444;
-}
-
+/* Floating Contact */
 .floating-contact {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #222;
-  color: #fff;
-  padding: 12px 18px;
-  border-radius: 30px;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  z-index: 1000;
-}
-
-#darkToggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #0077cc;
+  background: #00bcd4;
   color: white;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  z-index: 1000;
+  padding: 12px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-/* Dark Mode */
-body.dark {
-  background-color: #121212;
-  color: #eee;
-}
-
-body.dark .download-btn,
-body.dark .floating-contact,
-body.dark #darkToggle {
-  background-color: #444;
-  color: #fff;
-}
-
-/* Testimonials Slider */
-#testimonials {
-  position: relative;
-  overflow: hidden;
-}
-
-.slider {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-  min-width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  opacity: 0.5;
-  transition: opacity 0.5s;
-}
-
-.slide.active {
-  opacity: 1;
-  font-style: italic;
-  font-size: 1.2em;
-}
-
-/* Counters */
-.counter-box {
-  text-align: center;
-  margin: 20px;
-}
-
-.counter {
-  font-size: 2.5em;
-  font-weight: bold;
-  color: #0077cc;
-}
-
-/* Blog Section */
-.blog-grid {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.blog-card {
-  background: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
-  flex: 1;
-  min-width: 280px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-body.dark .blog-card {
-  background: #1e1e1e;
-  color: #ddd;
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    display: none;
+    background: #222;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 10px;
+  }
+  .nav-links.show {
+    display: flex;
+  }
+  .hamburger {
+    display: block;
+  }
 }
