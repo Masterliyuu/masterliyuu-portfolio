@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Typing effect
   const heroText = document.getElementById("heroText");
   const phrases = [
     "Turning vision into digital clarity.",
@@ -35,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   type();
 
-  // Swiper init
   new Swiper(".project-swiper", {
     loop: true,
     pagination: {
@@ -44,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  // Tag filtering
   const tags = document.querySelectorAll(".tag");
   const blogCards = document.querySelectorAll(".blog-card");
 
@@ -65,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Mobile nav toggle
   const menuToggle = document.getElementById("menuToggle");
   const navLinks = document.getElementById("navLinks");
   if (menuToggle && navLinks) {
@@ -74,7 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Dark mode toggle
   const themeToggle = document.getElementById("themeToggle");
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
@@ -82,7 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Scroll-triggered fade-in
   const faders = document.querySelectorAll(".fade-in");
   const appearOptions = {
     threshold: 0.3,
@@ -101,3 +95,4 @@ document.addEventListener("DOMContentLoaded", () => {
     appearOnScroll.observe(fader);
   });
 });
+```
