@@ -5,41 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leo Lingel T. Pañares | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
-  <button id="darkToggle">🌙 Toggle Dark Mode</button>
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <div class="nav-brand">Leo Lingel T. Pañares</div>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
   <!-- Hero Section -->
-  <section id="hero" data-aos="fade-up">
-    <h1 id="heroText"></h1>
-    <p>Hi, I'm Leo — a process-driven creative and operations specialist.</p>
-  </section>
-
-  <!-- Counters -->
-  <section id="counters" data-aos="fade-up">
-    <div class="counter-box">
-      <h2><span class="counter" data-target="8">0</span>+</h2>
-      <p>Years Experience</p>
-    </div>
-    <div class="counter-box">
-      <h2><span class="counter" data-target="20">0</span>+</h2>
-      <p>Projects Delivered</p>
-    </div>
-    <div class="counter-box">
-      <h2><span class="counter" data-target="100">0</span>%</h2>
-      <p>Client Satisfaction</p>
-    </div>
+  <section id="hero">
+    <h1>Leo Lingel T. Pañares</h1>
+    <p id="heroText"></p>
   </section>
 
   <!-- About Section -->
-  <section id="about" data-aos="fade-right">
+  <section id="about">
     <h2>About Me</h2>
     <p>I turn vision into digital clarity, blending strategy, design, and emotional intelligence to help brands and teams scale with confidence.</p>
   </section>
 
-  <!-- Skills & Services -->
-  <section id="skills" data-aos="fade-left">
+  <!-- Skills Section -->
+  <section id="skills">
     <h2>Skills & Services</h2>
     <div class="skills-grid">
       <div>
@@ -69,8 +66,8 @@
     </div>
   </section>
 
-  <!-- Testimonials Slider -->
-  <section id="testimonials" data-aos="fade-up">
+  <!-- Testimonials Section -->
+  <section id="testimonials">
     <h2>Testimonials</h2>
     <div class="slider">
       <div class="slide active">“Leo’s onboarding support was game-changing. Clear, confident, and kind.” – Luck Management</div>
@@ -79,8 +76,8 @@
     </div>
   </section>
 
-  <!-- Gallery -->
-  <section id="gallery" data-aos="zoom-in">
+  <!-- Gallery Section -->
+  <section id="gallery">
     <h2>Featured Work</h2>
     <div class="gallery-grid">
       <img src="https://leolingel.my.canva.site/masterliyuu-portfolio/_assets/media/ada2ca7f2ac6cea70838b3aa95ec289c.png" alt="Work Sample 1">
@@ -89,15 +86,15 @@
     </div>
   </section>
 
-  <!-- Resume Viewer -->
-  <section id="resume" data-aos="fade-up">
+  <!-- Resume Section -->
+  <section id="resume">
     <h2>My Resume</h2>
     <iframe src="Panare_Leo-Resume.pdf" width="100%" height="600px" style="border: none;"></iframe>
     <a href="Panare_Leo-Resume.pdf" download class="download-btn">📥 Download Resume</a>
   </section>
 
   <!-- Blog Section -->
-  <section id="blog" data-aos="fade-up">
+  <section id="blog">
     <h2>Latest Posts</h2>
     <div class="blog-grid">
       <div class="blog-card">
@@ -113,7 +110,7 @@
 
   <!-- Contact Section -->
   <a href="#contact" class="floating-contact">Let's Connect</a>
-  <section id="contact" data-aos="fade-up">
+  <section id="contact">
     <h2>Contact Me</h2>
     <form>
       <input type="text" placeholder="Your Name" required />
@@ -124,9 +121,5 @@
   </section>
 
   <script src="script.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
-  </script>
 </body>
 </html>
