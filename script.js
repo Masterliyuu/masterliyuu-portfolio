@@ -51,3 +51,33 @@ function revealOnScroll() {
 
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
+
+// Mobile menu toggle
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+const navItems = document.querySelectorAll('.nav-link');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  menuToggle.classList.toggle('open');
+});
+
+// Auto-close menu on link click
+navItems.forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.classList.remove('open');
+  });
+});
+
+// Active section highlight
+const sections = document.querySelectorAll('section');
+
+function highlightNav() {
+  let index = sections.length;
+  while (--index && window.scrollY + 100 < sections[index].offsetTop) {}
+  navItems.forEach(link => link.classList.remove('active'));
+  navItems[index].classList.add('active');
+}
+
+window.addEventListener('scroll', highlightNav);
