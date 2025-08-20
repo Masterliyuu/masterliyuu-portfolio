@@ -8,86 +8,86 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <h1>Leo Lingel T. Pañares</h1>
-    <p><span id="typed"></span></p>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <button id="darkToggle">🌙 Toggle Dark Mode</button>
-  </header>
+  <button id="darkToggle">🌙 Toggle Dark Mode</button>
 
-  <main>
-    <section id="about" data-aos="fade-up">
-      <h2>About Me</h2>
-      <p>
-        I'm a strategic and emotionally intelligent operations specialist with 8+ years of experience in executive support, project management, training facilitation, and creative content production. I specialize in persona-driven messaging, remote team leadership, and scenario-based engagement formats that spark connection and drive results.
-      </p>
-    </section>
+  <!-- Hero Section -->
+  <section id="hero" data-aos="fade-up">
+    <h1 id="heroText"></h1>
+    <p>Hi, I'm Leo — a process-driven creative and operations specialist.</p>
+  </section>
 
-    <section id="skills" data-aos="fade-up">
-      <h2>Core Skills</h2>
-      <ul class="skills-list">
-        <li>Persona-driven messaging</li>
-        <li>Creative copywriting</li>
-        <li>Team-building game design</li>
-        <li>Remote team leadership</li>
-        <li>Executive support & training</li>
-        <li>Web development (HTML, CSS, JS)</li>
-      </ul>
-    </section>
+  <!-- About Section -->
+  <section id="about" data-aos="fade-right">
+    <h2>About Me</h2>
+    <p>
+      I turn vision into digital clarity, blending strategy, design, and emotional intelligence to help brands and teams scale with confidence.
+    </p>
+  </section>
 
-    <section id="projects" data-aos="fade-up">
-      <h2>Featured Projects</h2>
-      <div class="project-card">
-        <h3>Portfolio Website</h3>
-        <p>Minimalist design with responsive layout and interactive touches.</p>
+  <!-- Skills & Services -->
+  <section id="skills" data-aos="fade-left">
+    <h2>Skills & Services</h2>
+    <div class="skills-grid">
+      <div>
+        <h3>Creative Strategy</h3>
+        <ul>
+          <li>Persona-driven chat engagement</li>
+          <li>Scenario-based storytelling</li>
+          <li>Social & dating platform scripting</li>
+        </ul>
       </div>
-      <div class="project-card">
-        <h3>Team-Building Game Toolkit</h3>
-        <p>Roleplay-based scheduling puzzles designed for remote collaboration and engagement.</p>
+      <div>
+        <h3>Operations & Leadership</h3>
+        <ul>
+          <li>Remote team management</li>
+          <li>Training facilitation</li>
+          <li>Executive support & onboarding</li>
+        </ul>
       </div>
-      <div class="project-card">
-        <h3>Persona Messaging Scripts</h3>
-        <p>Custom scripts for dating, onboarding, and sales platforms—crafted to convert with emotional intelligence.</p>
+      <div>
+        <h3>Technical & Design</h3>
+        <ul>
+          <li>Portfolio & website design (HTML, CSS, JS)</li>
+          <li>Interactive UI features (dark mode, animations)</li>
+          <li>Minimalist branding & layout</li>
+        </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact" data-aos="fade-up">
-      <h2>Contact Me</h2>
-      <form>
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </section>
-  </main>
+  <!-- Gallery -->
+  <section id="gallery" data-aos="zoom-in">
+    <h2>Featured Work</h2>
+    <div class="gallery-grid">
+      <img src="https://leolingel.my.canva.site/masterliyuu-portfolio/_assets/media/ada2ca7f2ac6cea70838b3aa95ec289c.png" alt="Work Sample 1">
+      <img src="https://leolingel.my.canva.site/masterliyuu-portfolio/_assets/media/28c777a45b7c7ef67d8a78d568296992.png" alt="Work Sample 2">
+      <img src="https://leolingel.my.canva.site/masterliyuu-portfolio/_assets/media/42bf08909b3b54cdf79a2158aeb2b0bd.jpg" alt="Work Sample 3">
+    </div>
+  </section>
 
-  <a href="#contact" class="floating-btn">📩</a>
+  <!-- Resume Viewer -->
+  <section id="resume" data-aos="fade-up">
+    <h2>My Resume</h2>
+    <iframe src="Panare_Leo-Resume.pdf" width="100%" height="600px" style="border: none;"></iframe>
+    <a href="Panare_Leo-Resume.pdf" download class="download-btn">📥 Download Resume</a>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 Leo Lingel T. Pañares</p>
-  </footer>
+  <!-- Contact Section -->
+  <a href="#contact" class="floating-contact">Let's Connect</a>
+  <section id="contact" data-aos="fade-up">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
 
   <script src="script.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script>
-    new Typed("#typed", {
-      strings: ["Creative Strategist", "Team Builder", "Persona Whisperer", "Operations Specialist"],
-      typeSpeed: 50,
-      backSpeed: 25,
-      loop: true
-    });
+    AOS.init({ duration: 800, once: true });
   </script>
 </body>
 </html>
