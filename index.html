@@ -7,101 +7,48 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="top-nav">
-    <div class="nav-brand">Leo Lingel T. Pañares</div>
-    <button class="hamburger" id="hamburger">&#9776;</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#resume">Resume</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
 
   <!-- Hero Section -->
-  <section id="hero">
-    <h1>Leo Lingel T. Pañares</h1>
-    <p id="heroText"></p>
-  </section>
-
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I turn vision into digital clarity, blending strategy, design, and emotional intelligence to help brands and teams scale with confidence.</p>
+  <section id="hero" class="fade-in">
+    <div class="hero-content">
+      <img src="Leo-profile.jpg" alt="Leo Lingel T. Pañares" class="profile-pic" />
+      <div>
+        <h1 class="hero-name">Leo Lingel T. Pañares</h1>
+        <p id="heroText"></p>
+      </div>
+    </div>
   </section>
 
   <!-- Skills Section -->
-  <section id="skills">
+  <section id="skills" class="slide-up">
     <h2>Skills & Services</h2>
     <div class="skills-grid">
-      <div>
-        <h3>Creative Strategy</h3>
-        <ul>
-          <li>Persona-driven chat engagement</li>
-          <li>Scenario-based storytelling</li>
-          <li>Social & dating platform scripting</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Operations & Leadership</h3>
-        <ul>
-          <li>Remote team management</li>
-          <li>Training facilitation</li>
-          <li>Executive support & onboarding</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Technical & Design</h3>
-        <ul>
-          <li>Portfolio & website design (HTML, CSS, JS)</li>
-          <li>Interactive UI features (dark mode, animations)</li>
-          <li>Minimalist branding & layout</li>
-        </ul>
-      </div>
+      <div class="floating-box">Persona-driven engagement</div>
+      <div class="floating-box">Creative copywriting</div>
+      <div class="floating-box">Remote team leadership</div>
+      <div class="floating-box">Web development (HTML, CSS, JS)</div>
     </div>
   </section>
 
   <!-- Testimonials Section -->
-  <section id="testimonials">
+  <section id="testimonials" class="fade-in">
     <h2>Testimonials</h2>
     <div class="slider">
-      <div class="slide active">“Leo’s onboarding support was game-changing. Clear, confident, and kind.” – Luck Management</div>
-      <div class="slide">“He turned our chat strategy into a conversion machine. Persona magic!” – Creative Agency</div>
-      <div class="slide">“Leo’s team-building games brought our remote crew together like never before.” – Remote Ops Lead</div>
+      <div class="slide active floating-box">“Leo’s onboarding support was game-changing. Clear, confident, and kind.” – Luck Management</div>
+      <div class="slide floating-box">“He turned our chat strategy into a conversion machine. Persona magic!” – Creative Agency</div>
+      <div class="slide floating-box">“Leo’s team-building games brought our remote crew together like never before.” – Remote Ops Lead</div>
     </div>
-  </section>
-
-  <!-- Gallery Section -->
-  <section id="gallery">
-    <h2>Featured Work</h2>
-    <div class="gallery-grid">
-      <img src="https://leolingel.my.canva.site/masterliyuu-portfolio/_assets/media/ada2ca7f2ac6cea70838b3aa95ec289c.png" alt="Work Sample 1">
-      <img src="https://leolingel.my.canva.site/masterliyuu-portfolio/_assets/media/28c777a45b7c7ef67d8a78d568296992.png" alt="Work Sample 2">
-      <img src="https://leolingel.my.canva.site/masterliyuu-portfolio/_assets/media/42bf08909b3b54cdf79a2158aeb2b0bd.jpg" alt="Work Sample 3">
-    </div>
-  </section>
-
-  <!-- Resume Section -->
-  <section id="resume">
-    <h2>My Resume</h2>
-    <iframe src="Panare_Leo-Resume.pdf" width="100%" height="600px" style="border: none;"></iframe>
-    <a href="Panare_Leo-Resume.pdf" download class="download-btn">📥 Download Resume</a>
   </section>
 
   <!-- Blog Section -->
-  <section id="blog">
+  <section id="blog" class="slide-up">
     <h2>Latest Posts</h2>
     <div class="blog-grid">
-      <div class="blog-card">
+      <div class="blog-card floating-box">
         <h3>How I Design Persona Scripts That Convert</h3>
         <p>Behind the scenes of my chat strategy process—where tone, timing, and emotional intelligence meet.</p>
       </div>
-      <div class="blog-card">
+      <div class="blog-card floating-box">
         <h3>Building Remote Culture Through Play</h3>
         <p>Why team-building games aren’t just fun—they’re strategic tools for trust and collaboration.</p>
       </div>
@@ -109,8 +56,7 @@
   </section>
 
   <!-- Contact Section -->
-  <a href="#contact" class="floating-contact">Let's Connect</a>
-  <section id="contact">
+  <section id="contact" class="fade-in">
     <h2>Contact Me</h2>
     <form>
       <input type="text" placeholder="Your Name" required />
@@ -119,6 +65,11 @@
       <button type="submit">Send</button>
     </form>
   </section>
+
+  <!-- Footer -->
+  <footer class="fade-in">
+    <p>© 2025 Leo Lingel T. Pañares</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
