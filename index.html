@@ -11,13 +11,13 @@
 
   <!-- Navigation -->
   <header>
-    <div class="navbar">
+    <nav class="navbar">
       <div class="logo">Leo Pañares</div>
       <button id="themeToggle">🌙</button>
       <div class="menu-toggle" id="menuToggle">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </div>
       <ul class="nav-links" id="navLinks">
         <li><a href="#hero" class="nav-link active">Home</a></li>
@@ -27,7 +27,7 @@
         <li><a href="#tools" class="nav-link">Tools</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
-    </div>
+    </nav>
   </header>
 
   <!-- Hero Section -->
@@ -161,46 +161,103 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script>
-    // Theme toggle
-    document.getElementById('themeToggle').onclick = () => {
-      document.body.classList.toggle('dark');
-    };
+    // Typing effect
+    const heroText = document.getElementById("heroText");
+    const phrases = [
+      "Turning vision into digital clarity.",
+      "Creative strategist & team builder.",
+      "Persona-driven messaging expert.",
+      "Remote operations specialist."
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
 
-    // Mobile nav toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    menuToggle.onclick = () => {
-      menuToggle.classList.toggle('open');
-      navLinks.classList.toggle('open');
-    };
+    function type() {
+      if (charIndex < phrases[phraseIndex].length) {
+        heroText.textContent += phrases[phraseIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 100);
+      } else {
+        setTimeout(erase, 1500);
+      }
+    }
 
-    // Swiper init
-    new Swiper('.project-swiper', {
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination',
-      },
-    });
+    function erase() {
+      if (charIndex > 0) {
+        heroText.textContent = phrases[phraseIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 50);
+      } else {
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(type, 500);
+      }
+    }
 
-    // Blog tag filtering
-    const tags = document.querySelectorAll('.tag');
-    const cards = document.querySelectorAll('.blog-card');
-    tags.forEach(tag => {
-      tag.addEventListener('click', () => {
-        tags.forEach(t => t.classList.remove('active'));
-        tag.classList.add('active');
-                const selected = tag.dataset.tag;
-        cards.forEach(card => {
-          const tags = card.dataset.tags.split(' ');
-          if (selected === 'all' || tags.includes(selected)) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
+    document.addEventListener("DOMContentLoaded", () => {
+      type();
+
+      // Swiper init
+      new Swiper(".project-swiper", {
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+
+      // Tag filtering
+      const tags = document.querySelectorAll(".tag");
+      const blogCards = document.querySelectorAll(".blog-card");
+
+      tags.forEach(tag => {
+        tag.addEventListener("click", () => {
+          tags.forEach(t => t.classList.remove("active"));
+          tag.classList.add("active");
+          const selected = tag.dataset.tag;
+
+          blogCards.forEach(card => {
+            const cardTags = card.dataset.tags.split(" ");
+            if (selected === "all" || cardTags.includes(selected)) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
         });
+      });
+
+      // Mobile nav toggle
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Dark mode toggle
+      const themeToggle = document.getElementById("themeToggle");
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+      });
+
+      // Scroll-triggered fade-in
+      const faders = document.querySelectorAll(".fade-in");
+      const appearOptions = {
+        threshold: 0.3,
+        rootMargin: "0px 0px -50px 0px"
+      };
+
+      const appearOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        });
+      }, appearOptions);
+
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
       });
     });
   </script>
-
 </body>
 </html>
