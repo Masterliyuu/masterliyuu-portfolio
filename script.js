@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let charIndex = 0;
 
   function type() {
+    if (!heroText) return;
     if (charIndex < phrases[phraseIndex].length) {
       heroText.textContent += phrases[phraseIndex].charAt(charIndex);
       charIndex++;
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function erase() {
+    if (!heroText) return;
     if (charIndex > 0) {
       heroText.textContent = phrases[phraseIndex].substring(0, charIndex - 1);
       charIndex--;
@@ -66,15 +68,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // Mobile nav toggle
   const menuToggle = document.getElementById("menuToggle");
   const navLinks = document.getElementById("navLinks");
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  }
 
   // Dark mode toggle
   const themeToggle = document.getElementById("themeToggle");
-  themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-  });
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+  }
 
   // Scroll-triggered fade-in
   const faders = document.querySelectorAll(".fade-in");
