@@ -1,52 +1,66 @@
 // Typing effect
-const heroText = "Creative. Strategic. Human.";
-let i = 0;
-function typeWriter() {
-  if (i < heroText.length) {
-    document.getElementById("heroText").innerHTML += heroText.charAt(i);
-    i++;
-    setTimeout(typeWriter, 100);
+const heroText = document.getElementById("heroText");
+const phrases = [
+  "Process-driven creative",
+  "Remote team leader",
+  "Persona strategist",
+  "Digital storyteller"
+];
+let phraseIndex = 0;
+let charIndex = 0;
+let typingDelay = 100;
+let erasingDelay = 50;
+let pauseDelay = 1500;
+
+function type() {
+  if (charIndex < phrases[phraseIndex].length) {
+    heroText.textContent += phrases[phraseIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, typingDelay);
+  } else {
+    setTimeout(erase, pauseDelay);
   }
 }
-typeWriter();
 
-// Dark mode toggle
-document.getElementById("darkToggle").addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-});
-
-// Animated counters
-const counters = document.querySelectorAll(".counter");
-const speed = 100;
-
-counters.forEach(counter => {
-  const updateCount = () => {
-    const target = +counter.getAttribute("data-target");
-    const count = +counter.innerText;
-    const inc = target / speed;
-
-    if (count < target) {
-      counter.innerText = Math.ceil(count + inc);
-      setTimeout(updateCount, 30);
-    } else {
-      counter.innerText = target;
-    }
-  };
-  updateCount();
-});
-
-// Testimonials slider
-let currentSlide = 0;
-const slides = document.querySelectorAll(".slide");
-
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.remove("active");
-    if (i === index) slide.classList.add("active");
-  });
+function erase() {
+  if (charIndex > 0) {
+    heroText.textContent = phrases[phraseIndex].substring(0, charIndex - 1);
+    charIndex--;
+    setTimeout(erase, erasingDelay);
+  } else {
+    phraseIndex = (phraseIndex + 1) % phrases.length;
+    setTimeout(type, typingDelay);
+  }
 }
 
-setInterval(() => {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-}, 4000);
+document.addEventListener("DOMContentLoaded", () => {
+  if (phrases.length) setTimeout(type, pauseDelay);
+});
+
+// Hamburger menu toggle
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+});
+
+// Scroll spy
+const sections = document.querySelectorAll("section");
+const navItems = document.querySelectorAll(".nav-links li a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (pageYOffset >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navItems.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href").includes(current)) {
+      link.classList.add("active");
+    }
+  });
+});
