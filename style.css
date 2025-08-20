@@ -20,6 +20,94 @@ h1, h2 {
   text-align: center;
 }
 
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+}
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #2196f3;
+}
+
+/* Hamburger Icon */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+}
+.bar {
+  height: 3px;
+  width: 100%;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+.menu-toggle.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.open .bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 220px;
+    background-color: white;
+    flex-direction: column;
+    padding: 60px 20px;
+    box-shadow: 4px 0 12px rgba(0,0,0,0.2);
+    transition: left 0.3s ease;
+    z-index: 999;
+  }
+  .nav-links.open {
+    left: 0;
+  }
+  .nav-links li {
+    margin-bottom: 20px;
+  }
+}
+
 /* Hero Section */
 .hero-content {
   display: flex;
@@ -46,15 +134,7 @@ h1, h2 {
   font-size: 1.2rem;
 }
 
-/* Skills Grid */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-
-/* Floating Box Effect */
+/* Floating Box */
 .floating-box {
   background: white;
   border-radius: 12px;
@@ -65,6 +145,14 @@ h1, h2 {
 .floating-box:hover {
   transform: translateY(-8px);
   box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
 }
 
 /* Testimonials Slider */
@@ -94,6 +182,7 @@ h1, h2 {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
 
 /* Contact Form */
@@ -113,6 +202,7 @@ button {
   color: white;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 /* Footer */
