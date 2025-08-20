@@ -22,13 +22,13 @@ h1, h2 {
   margin-bottom: 10px;
 }
 
-.skills-grid {
+.skills-grid, .blog-grid {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
 }
 
-.skills-grid div {
+.skills-grid div, .blog-card {
   flex: 1;
   min-width: 250px;
 }
@@ -112,14 +112,73 @@ button {
   z-index: 1000;
 }
 
-.dark-mode {
+/* Dark Mode */
+body.dark {
   background-color: #121212;
-  color: #f0f0f0;
+  color: #eee;
 }
 
-.dark-mode input,
-.dark-mode textarea {
-  background-color: #1e1e1e;
-  color: #f0f0f0;
-  border: 1px solid #444;
+body.dark .download-btn,
+body.dark .floating-contact,
+body.dark #darkToggle {
+  background-color: #444;
+  color: #fff;
+}
+
+/* Testimonials Slider */
+#testimonials {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  opacity: 0.5;
+  transition: opacity 0.5s;
+}
+
+.slide.active {
+  opacity: 1;
+  font-style: italic;
+  font-size: 1.2em;
+}
+
+/* Counters */
+.counter-box {
+  text-align: center;
+  margin: 20px;
+}
+
+.counter {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #0077cc;
+}
+
+/* Blog Section */
+.blog-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.blog-card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 280px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+body.dark .blog-card {
+  background: #1e1e1e;
+  color: #ddd;
 }
