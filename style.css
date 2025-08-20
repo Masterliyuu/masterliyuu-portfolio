@@ -11,6 +11,13 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   scroll-behavior: smooth;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
 }
 
 section {
@@ -56,10 +63,33 @@ nav a:hover {
   color: var(--accent-color);
 }
 
+nav a.active {
+  border-bottom: 2px solid var(--accent-color);
+}
+
+#themeToggle {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
 /* Hero Section */
 #hero {
   text-align: center;
   padding-top: 100px;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
 .profile-pic {
