@@ -3,165 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Leo Pañares – Creative strategist, persona expert, and remote operations specialist. Explore my portfolio, blog, and tools." />
   <title>Leo Lingel T. Pañares | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <link rel="icon" href="favicon.ico" />
 </head>
 <body>
-
-  <!-- Navigation -->
   <header>
-    <nav class="navbar">
+    <nav>
       <div class="logo">Leo Pañares</div>
-      <button id="themeToggle" aria-label="Toggle dark mode">🌙</button>
-      <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#hero" class="nav-link active">Home</a></li>
-        <li><a href="#competencies" class="nav-link">Competencies</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#blog" class="nav-link">Blog</a></li>
-        <li><a href="#tools" class="nav-link">Tools</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+      <ul class="nav-links">
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
+      <div class="menu-toggle">☰</div>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section id="hero" class="hero-content fade-in">
-    <img src="Leo-profile.jpg" alt="Leo Lingel T. Pañares" class="profile-pic" />
-    <div>
-      <h1 class="hero-name">Leo Lingel T. Pañares</h1>
-      <p id="heroText"></p>
-    </div>
+  <section class="hero">
+    <h1><span id="typed"></span></h1>
+    <p>Process-driven creative & operations specialist</p>
   </section>
 
-  <!-- Core Competencies -->
-  <section id="competencies" class="fade-in">
-    <h2>Core Competencies</h2>
-    <div class="competency-group">
-      <h3>Executive Support & Admin</h3>
-      <ul>
-        <li>Management</li>
-        <li>Calendar & Inbox Management</li>
-        <li>Travel Arrangements</li>
-        <li>SOP Creation</li>
-        <li>Executive Reporting</li>
-      </ul>
-    </div>
-    <div class="competency-group">
-      <h3>Project Management</h3>
-      <ul>
-        <li>Workflow Optimization</li>
-        <li>Task Tracking (Trello, Asana, ClickUp)</li>
-        <li>Cross-Functional Coordination</li>
-        <li>Process Documentation</li>
-      </ul>
-    </div>
-    <div class="competency-group">
-      <h3>Training & Learning Support</h3>
-      <ul>
-        <li>Training Needs Analysis</li>
-        <li>LMS Management</li>
-        <li>Workshop Coordination</li>
-      </ul>
-    </div>
-    <div class="competency-group">
-      <h3>Learning Material Development</h3>
-      <ul>
-        <li>Creative & Digital Content</li>
-        <li>Social Media Content</li>
-        <li>Email Campaigns</li>
-        <li>Brand Collateral Design</li>
-      </ul>
-    </div>
+  <section id="skills" class="fade-in">
+    <h2>Skills</h2>
+    <ul>
+      <li>Persona-driven chat engagement</li>
+      <li>Creative copywriting</li>
+      <li>Remote team leadership</li>
+      <li>Contract negotiation</li>
+    </ul>
   </section>
 
-  <!-- Projects Section -->
   <section id="projects" class="fade-in">
     <h2>Featured Projects</h2>
-    <div class="swiper project-swiper">
+    <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="project1.png" alt="Project 1" class="project-icon" />
-          <h3>Portfolio Builder</h3>
-          <p>Interactive site with GSAP scroll animations and Swiper.js carousels.</p>
-        </div>
-        <div class="swiper-slide">
-          <img src="project2.png" alt="Project 2" class="project-icon" />
-          <h3>Team Game Engine</h3>
-          <p>Logic puzzle meets roleplay for remote team-building experiences.</p>
-        </div>
+        <div class="swiper-slide">Project 1</div>
+        <div class="swiper-slide">Project 2</div>
+        <div class="swiper-slide">Project 3</div>
       </div>
       <div class="swiper-pagination"></div>
     </div>
   </section>
 
-  <!-- Blog Section -->
-  <section id="blog" class="fade-in">
-    <h2>Latest Blog Posts</h2>
-    <div class="tag-filter">
-      <button class="tag active" data-tag="all">All</button>
-      <button class="tag" data-tag="onboarding">Onboarding</button>
-      <button class="tag" data-tag="persona">Persona</button>
-      <button class="tag" data-tag="tech">Tech</button>
-    </div>
-    <div class="blog-grid">
-      <div class="blog-card" data-tags="onboarding persona">
-        <h3>Crafting Bold First Impressions</h3>
-        <p>How to write icebreakers that spark curiosity and connection.</p>
-      </div>
-      <div class="blog-card" data-tags="tech">
-        <h3>GSAP + Swiper.js Mastery</h3>
-        <p>Scroll animations and carousels that elevate your UI.</p>
-      </div>
-      <div class="blog-card" data-tags="onboarding">
-        <h3>Remote Role Ramps</h3>
-        <p>Fast-tracking your onboarding with scenario-based messaging.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tools & Technologies -->
   <section id="tools" class="fade-in">
-    <h2>Tools & Technologies</h2>
-    <div class="tools-grid">
-      <div class="tool"><img src="google.png" alt="Google Workspace" /><span>Google Workspace</span></div>
-      <div class="tool"><img src="microsoft.png" alt="Microsoft Office" /><span>Microsoft Office</span></div>
-      <div class="tool"><img src="zoom.png" alt="Zoom" /><span>Zoom</span></div>
-      <div class="tool"><img src="canva.png" alt="Canva" /><span>Canva</span></div>
-      <div class="tool"><img src="trello.png" alt="Trello" /><span>Trello</span></div>
-      <div class="tool"><img src="asana.png" alt="Asana" /><span>Asana</span></div>
-      <div class="tool"><img src="capcut.png" alt="CapCut" /><span>CapCut</span></div>
-      <div class="tool"><img src="adobe.png" alt="Adobe Creative Suite" /><span>Adobe Creative Suite</span></div>
-      <div class="tool"><img src="lms.png" alt="LMS" /><span>Learning Management Systems</span></div>
-      <div class="tool"><img src="files.png" alt="File Tools" /><span>File Organization Tools</span></div>
+    <h2>Tools</h2>
+    <div class="tags">
+      <button data-tag="all">All</button>
+      <button data-tag="web">Web Dev</button>
+      <button data-tag="creative">Creative</button>
+    </div>
+    <div class="tool-list">
+      <div class="tool" data-tags="web">GSAP</div>
+      <div class="tool" data-tags="web">Swiper.js</div>
+      <div class="tool" data-tags="creative">Figma</div>
     </div>
   </section>
 
-  <!-- Contact Section -->
   <section id="contact" class="fade-in">
-    <h2>Contact Me</h2>
-    <form action="https://formspree.io/f/your-id" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name" />
-      <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email" />
-      <textarea name="message" rows="5" placeholder="Your Message" required aria-label="Your Message"></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+    <h2>Contact</h2>
+    <p>Email: leo@example.com</p>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Leo Lingel T. Pañares. All rights reserved.</p>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
   <script src="script.js" defer></script>
 </body>
 </html>
