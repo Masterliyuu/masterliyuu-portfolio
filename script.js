@@ -49,7 +49,7 @@ const observer = new IntersectionObserver((entries) => {
 
 fadeElements.forEach(el => observer.observe(el));
 
-// Swiper initialization
+// Swiper carousels
 const testimonialSwiper = new Swiper('.testimonialSwiper', {
   loop: true,
   autoplay: {
@@ -106,4 +106,21 @@ themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   const theme = document.body.classList.contains("dark") ? "dark" : "light";
   localStorage.setItem("theme", theme);
+});
+
+// Mobile menu toggle
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+const navItems = document.querySelectorAll('.nav-link');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  menuToggle.classList.toggle('open');
+});
+
+navItems.forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.classList.remove('open');
+  });
 });
