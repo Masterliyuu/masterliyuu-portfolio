@@ -1,16 +1,21 @@
-/* style.css */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background-color: #ffffff;
   color: #333;
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
   text-align: center;
   padding: 2rem;
   background: linear-gradient(to right, #f0f0f0, #e0e0e0);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
 nav ul {
@@ -25,18 +30,46 @@ nav a {
   text-decoration: none;
   color: #0077cc;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-section {
+nav a:hover {
+  color: #005fa3;
+}
+
+#darkToggle {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+main {
   padding: 2rem;
   max-width: 800px;
   margin: auto;
+}
+
+section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
 }
 
 .skills-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
+}
+
+.skills-list li {
+  background-color: #f0f0f0;
+  padding: 0.75rem;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 500;
 }
 
 .project-card {
@@ -55,6 +88,7 @@ input, textarea {
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 1rem;
 }
 
 button {
@@ -64,6 +98,7 @@ button {
   padding: 0.75rem;
   cursor: pointer;
   border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -74,4 +109,36 @@ footer {
   text-align: center;
   padding: 1rem;
   background-color: #f0f0f0;
+}
+
+.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0077cc;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.floating-btn:hover {
+  background-color: #005fa3;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+header.dark-mode {
+  background: linear-gradient(to right, #1e1e1e, #2c2c2c);
+}
+
+nav a.dark-mode {
+  color: #90caf9;
 }
